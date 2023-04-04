@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
+import LargeCard from "../components/LargeCard";
 import MediumCard from "../components/MediumCard";
 import SmallCard from "../components/SmallCard";
 
@@ -38,6 +39,13 @@ export default function Home({ exploreData, cardsData }) {
             ))}
           </div>
         </section>
+
+        <LargeCard
+          img="https://a0.muscache.com/im/pictures/2da67c1c-0c61-4629-8798-1d4de1ac9291.jpg?im_w=1440"
+          title="The Greatest Outdoors"
+          description="Wishlists curated by Airbnb."
+          buttonText="Get Inspired"
+        />
       </main>
     </div>
   );
@@ -47,11 +55,9 @@ export async function getStaticProps() {
   const exploreData = await fetch("https://jsonkeeper.com/b/9APO").then((res) =>
     res.json()
   );
-
   const cardsData = await fetch("https://jsonkeeper.com/b/7FCL").then((res) =>
     res.json()
   );
-
   return {
     props: {
       exploreData,
