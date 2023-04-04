@@ -5,8 +5,7 @@ import Router from "next/router";
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Head>
-      </Head>
+      <Head></Head>
       <Component {...pageProps} />
     </>
   );
