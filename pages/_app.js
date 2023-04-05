@@ -1,4 +1,3 @@
-import Router from "next/router";
 import "tailwindcss/tailwind.css";
 import "../styles/global.css";
 
