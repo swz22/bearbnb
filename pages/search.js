@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import InfoCard from "../components/InfoCard";
 import { useRouter } from "next/dist/client/router";
 import { format } from "date-fns";
 
@@ -23,7 +24,6 @@ function Search({ searchResults }) {
   return (
     <div>
       <Header placeholder={`${formatString(location)} | ${range} | ${guestCount} ${formatGuest}`} />
-
       <main className="flex">
         <section className="flex-grow pt-14 px-6">
           <p className="text-xs">
@@ -39,9 +39,22 @@ function Search({ searchResults }) {
             <p className="filter-btn"> More filters </p>
           </div>
 
+          <div className="flex flex-col">
+            {searchResults.map(({ img, location, title, description, star, price, total }) => (
+              <InfoCard
+                key={img}
+                img={img}
+                location={location}
+                title={title}
+                description={description}
+                star={star}
+                price={price}
+                total={total}
+              />
+            ))}
+          </div>
         </section>
       </main>
-
       <Footer />
     </div>
   );
@@ -53,7 +66,6 @@ export async function getServerSideProps() {
   const searchResults = await fetch("https://api.npoint.io/1171ef336cbd0d0736b4").then((res) =>
     res.json()
   );
-
   return {
     props: {
       searchResults,
