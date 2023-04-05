@@ -11,12 +11,14 @@ import { useState } from "react";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRangePicker } from "react-date-range";
+import { useRouter } from "next/dist/client/router";
 
 function Header() {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [guestCount, setGuestCount] = useState(1);
+  const router = useRouter();
 
   const handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate);
@@ -25,6 +27,10 @@ function Header() {
 
   const resetInput = () => {
     setSearchInput("");
+  };
+
+  const search = () => {
+    router.push("/search");
   };
 
   const selectionRange = {
@@ -93,7 +99,7 @@ function Header() {
             <button onClick={resetInput} className="flex-grow text-red-400">
               Cancel
             </button>
-            <button className="flex-grow text-gray-500">Search</button>
+            <button onClick={search} className="flex-grow text-gray-500">Search</button>
           </div>
         </div>
       )}
