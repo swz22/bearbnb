@@ -10,7 +10,7 @@ function Map({ searchResults }) {
     longitude: result.long,
   }));
   //coordinates of the center of locations
-  const center = { latitude: 33.2, longitude: -118.30 };
+  const center = { latitude: 33.2, longitude: -118.3 };
   const [viewport, setViewport] = useState({
     width: "100%",
     height: "100%",

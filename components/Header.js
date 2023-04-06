@@ -60,12 +60,7 @@ function Header({ placeholder }) {
         onClick={() => router.push("/")}
         className="relative flex items-center h-10 cursor-pointer my-auto"
       >
-        <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg"
-          layout="fill"
-          objectFit="contain"
-          objectPosition="left"
-        />
+        <Image src="./bearbnb.svg" layout="fill" objectFit="contain" objectPosition="left" />
       </div>
 
       {/* middle section */}
